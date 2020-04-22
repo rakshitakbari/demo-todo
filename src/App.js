@@ -24,14 +24,28 @@ class App extends React.Component {
       this.state.data.push({'id': window.id++, 'name': this.state.name})
 
       this.setState({data: this.state.data});
+
+      this.setState({
+        name: ''
+       });
+    }
+
+    // Handle remove
+    handleRemove(id){
+      // Filter all todos except the one to be removed
+      const remainder = this.state.data.filter((todo) => {
+        if(todo.id !== id) return todo;
+      });
+      // Update state with filter
+      this.setState({data: remainder});
     }
 
     render() {
       const todoNode = this.state.data.map((users) => {
-        return (<li key={users.id}>{users.name}</li>)
+        return (<li key={users.id}>{users.name}<span><button onClick={() =>this.handleRemove(users.id)}>x</button></span></li>)
       });
         return (
-            <div class="input-data">
+            <div className="input-data">
               <form>
                   <label>
                       <input id='name' name='name' value={this.state.name} onChange={e => this.handleChange(e)} placeholder='Enter a new name'/>
