@@ -65,3 +65,17 @@ ul li{
 	list-style: none;
 	line-height: 25px;
 }
+
+.input{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 39%;
+    padding: 7px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
